@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Playfair+Display');
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  text-decoration: none;
+  overflow-y: hidden;
+}
+
+p, h2 {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+}
+
+p {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.875em;
+  font-weight: 400;
+}
+
+/* ----- main and images cotainer ----- */
+
+.main-container,
+.imgs-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.main-container {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  height: 92%;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.imgs-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  height: 92%;
+}
+
+.imgs-container img {
+  height: 100%;
+}
+
+/* ----- header ----- */
+
+.header {
+  position: absolute;
+  top: 0; left: 80px;
+  height: 50px;
+  z-index: 1;
+}
+
+.header p {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  padding: 0;
+  margin: 10px 0;
+}
+
+/* ----- hamburger menu ----- */
+
+.hamburger-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 50px;
+  height: 50px;
+  margin: 17px;
+  background-color: #fff;
+}
+
+.hamburger-btn {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.rect {
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 6px;
+  background-color: #000;
+  transform-origin: 50%;
+  transition: all 0.5s;
+}
+
+.rect:first-child {
+  top: 0;
+  transition: all 0.5s;
+}
+
+.rect:nth-child(2) {
+  top: 12px;
+  transition: all 0.5s;
+}
+
+.rect:last-child {
+  bottom: 0;
+  transition: all 0.5s;
+}
+
+.hamburger-hover:hover .rect:first-child {
+  top: -50px;
+  opacity: 0;
+}
+
+.hamburger-hover:hover .rect:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.hamburger-hover:hover .rect:last-child {
+  bottom: 12px;
+}
+
+.animate-hover:hover {
+  transform: rotate(50deg);
+}
+
+/* ----- sidebar ----- */
+
+.top-nav {
+  position: absolute;
+  top: 70px; left: -300px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 300px;
+  height: 87%;
+  background-color: #fff;
+  text-align: center;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  z-index: 666;
+}
+
+.top-nav a {
+  position: relative;
+  margin: 40px auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* ----- sections ----- */
+
+.section {
+  position: absolute;
+  top: 0;
+  left: -800px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 92%;
+  background-color: #fff;
+  text-align: center;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+.section p {
+  width: 70%;
+  margin: 0;
+  line-height: 35px;
+}
+
+.contact span p {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+
+/* ----- footer ----- */
+
+.footer-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  height: 5%;
+  z-index: 666;
+  text-align: left;
+}
+
+footer p {
+  font-size: 14px;
+  margin: 0 15px;
+}
+
+footer a::before {
+  content: "";
+  display: none;
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background-color: #000;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+a:hover:before {
+  width: 100%;
+  left: 0;
+}
+
+.header-change {
+  position: fixed;
+  left: 10px;
+}
+
+/* ----- media ----- */
+
+@media screen and (max-width: 700px) {
+
+  html, body {
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
+  .main-container {
+    position: static;
+    width: 100%;
+    top: 70px;
+    left: 0;
+
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .imgs-container {
+    flex-flow: column nowrap;
+    height: auto;
+  }
+  .imgs-container img {
+    width: 100%;
+    height: auto;
+  }
+  .hamburger-container,
+  .hamburger-btn,
+  .top-nav {
+    display: none;
+  }
+  .header {
+    position: relative;
+    left: 0;
+    margin: 0 auto;
+    width: auto;
+    text-align: center;
+    border-bottom: 1px solid #000;
+  }
+
+  .section {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 20px 0 30px 0;
+  }
+  .footer-bottom {
+    position: static;
+    width: 100%;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  p {
+    font-size: 1em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .header p {
+    font-size: 22px;
+  }
+
+  .section p {
+    width: 70%;
+    line-height: 25px;
+  }
+
+  .contact span p {
+    font-size: 24px;
+  }
+
+  .contact {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+
+  .header p {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 1.125em;
+  }
+}

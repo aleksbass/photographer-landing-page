@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  <title>*** Wedding Photography ***</title>
+</head>
+
+<body>
+  <!--- navigation bar -->
+  <div class="header"><p>SOME GREAT PHOTOGRAPHER</p></div>
+  <nav class="hamburger-container">
+      <div class="hamburger-btn hamburger-hover" id="hamburgerBtn">
+        <div class="rect"></div>
+        <div class="rect"></div>
+        <div class="rect"></div>
+      </div>
+    </nav>
+    <nav class="top-nav" id="sidebar">
+      <a id="aboutLink" onclick="openSection(about)">about me</a>
+      <a id="contactLink" onclick="openSection(contact)">contact</a>
+    </nav>
+  <!-- main container -->
+  <div class="main-container" id="mainContainer">
+    <!-- about section -->
+    <section class="section about" id="aboutSection">
+      <h2>Lorem ipsum dolor sit amet,</h2>
+      <p>consectetur adipiscing elit. In vel augue neque. Suspendisse quis ligula tempor, fringilla lorem quis, auctor erat. Nunc in convallis quam, in tincidunt lacus. Ut vitae erat pretium, maximus mauris nec, commodo felis. Pellentesque velit augue, tristique et eros non, dignissim sodales odio. Vivamus vel molestie risus. Nulla non urna sem.</p>
+    </section>
+    <div class="imgs-container" id="imgsContainer">
+    <!-- imgs -->
+      <img src="img/01.jpg" />
+      <img src="img/02.jpg" />
+      <img src="img/03.jpg" />
+      <img src="img/04.jpg" />
+      <img src="img/05.jpg" />
+      <img src="img/06.jpg" />
+    </div>
+    <!-- contact section -->
+    <section class="section contact" id="contactSection">
+      <p>Anna Kowalska</p>
+      <p>Hallera 33b, Gdansk</p>
+      <span><p>anna.kowalska@mail.mail</p></span>
+    </section>
+    <!-- footer -->
+    <footer class="footer-bottom"><p>&#xA9 <a href="https://www.linkedin.com/in/aleksandra-basinska/" target="_blank">Aleks Basinska</a> 2017</p></footer>
+  </div>
+
+
+<script>
+/* ---- sidebar navigation & sections ---- */
+var hamburger = document.getElementById('hamburgerBtn');
+var sidebar = document.getElementById('sidebar');
+var imgs = document.getElementById('mainContainer');
+var about = document.getElementById('aboutSection');
+var contact = document.getElementById('contactSection');
+var section = document.getElementsByClassName('section');
+
+function openSidebar(){
+  sidebar.style.left = '0px';
+  imgs.style.left = '300px';
+}
+
+function closeSidebar(){
+  sidebar.style.left = '-300px';
+  imgs.style.left = '0';
+}
+
+function openSection(name){
+  for(var i=0; i < section.length; i++){
+      section[i].style.left = '-800px';
+      name.style.left = '20px';
+  };
+}
+
+function closeSections(){
+  for(var i=0; i < section.length; i++){
+      section[i].style.left = '-800px';
+  };
+}
+
+hamburger.addEventListener('click', function(){
+
+  if(sidebar.style.left === '-300px') {
+    openSidebar();
+  }
+  else {
+    closeSidebar();
+    closeSections()
+  }
+});
+
+/* ----- header behaviour ----- */
+function changeHeader() {
+  var scroll = document.body.scrollLeft || document.documentElement.scrollLeft;
+  var header = document.querySelector('.header');
+
+  if(scroll > 80) {
+    header.classList.add('header-change');
+  }
+  else {
+    header.classList.remove('header-change');
+  }
+}
+
+window.onscroll = function(){changeHeader();}
+
+
+</script>
+</body>
+</html>
