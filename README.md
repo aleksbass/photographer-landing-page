@@ -1,6 +1,4 @@
-<h1>photographer-landing-page</h1>
-
-<h1>Hotel Landing Page</h1>
+<h1>Photographer's Landing Page</h1>
 
 <p>simple one-page template</p>
 <p>design & code created by me</p>
